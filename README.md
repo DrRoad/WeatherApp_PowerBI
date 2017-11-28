@@ -1,6 +1,6 @@
 # WeatherApp with Microsoft Power BI & R
 ## Notice
-This project is not fancy, it is only used for demo. 
+*This project is not fancy, it is only used for demo.*
 
 You can use this repository for any purposes except my API key for `OpenWeatherMap.org`, thank you!
 ## Introduction
