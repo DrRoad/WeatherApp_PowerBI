@@ -1,6 +1,8 @@
 # WeatherApp with Power BI & R
 ## Notice
-This project is not fancy, it only for demo purpose.
+This project is not fancy, it is only used for demo. 
+
+You can use this repository for any purposes except my API key for `OpenWeatherMap.org`, thank you!
 ## Introduction
 ### Method
 This project use R to fetch data from [OpenWeatherMap](http://openweathermap.org/) API, and converting from JSON to the data that Power BI could read.
