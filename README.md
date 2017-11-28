@@ -23,6 +23,7 @@ Basically, this project is a simple visualization of data but it is useful and c
 ## Explanation (for non-IT person)
 * **BI**: Business Intelligence.
 * **JSON**: JavaScript Object Notation (it is a format to store data).
+* **API**: Application programming interface (a way that software or website could communicate by exchanging some data).
 * **UTC**: Coordinated Universal Time (Greenwich Time).
 * **R**: A programming language for statistics.
 * `jsonlite`: An R library used for converting JSON format into a format (i.e. data frame) R could understand.
