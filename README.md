@@ -23,7 +23,7 @@ Basically, this project is a simple visualization of data but it is useful and c
 ## Explanation (for non-IT person)
 * **BI**: Business Intelligence.
 * **JSON**: JavaScript Object Notation (it is a format to store data).
-* **UTC**: Coordinated Universal Time (Greenwitch Time).
+* **UTC**: Coordinated Universal Time (Greenwich Time).
 * **R**: A programming language for statistics.
 * `jsonlite`: An R library used for converting JSON format into a format (i.e. data frame) R could understand.
 * `ggplot2`: An R library for visualization the data, this only used for R graphics test in this project (not necessary).
