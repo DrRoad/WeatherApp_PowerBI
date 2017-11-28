@@ -14,7 +14,7 @@ Basically, it is a visualization of data but could update very easily. Some plot
 
 ### If you wish to change the cities of weather, please follow this step:
 * Click `Home>Edit Queries`.
-* Select one of the data set, then double-click `Query Settings>APPLIED STEPS>Souce` on the right panel; then find the line and change `city <- ""Milwaukee,US""; timezone <- -6`, the field of "Milwaukee,US" and "-6" to any city and time-zone as you like; however please follow the format of `<city name>,<country code>`, time-zone is the time shift over UTC. If you don't know your country code, you can type your city to [city](http://openweathermap.org/city) to check.
+* Select one of the data set, then double-click `Query Settings>APPLIED STEPS>Souce` on the right panel; then find the line and change `city <- ""Milwaukee,US""` and `timezone <- -6`, the field of "Milwaukee,US" and "-6" to any city and time-zone as you like; however please follow the format of `<city name>,<country code>`, time-zone is the time shift over UTC. If you don't know your country code, you can type your city to [city](http://openweathermap.org/city) to check.
 * Do this for another data set.
 * Apply changes and close.
 
