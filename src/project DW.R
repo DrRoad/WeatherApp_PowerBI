@@ -6,7 +6,7 @@ timezone <- -6
 
 # function utilities
 nullQ <- function (x) {
-  ifelse(is.null(x), 0, x)
+  ifelse(is.null(x) || is.na(x), 0, x)
 }
 
 # API for 5 days forcast
@@ -38,10 +38,9 @@ humidity <- test$main.humidity
 temp_kf <- test$main.temp_kf
 clouds <- test$clouds.all
 wind_speed <- test$wind.speed
-wind_degree <- test$wind.deg
+wind_degree <- (test$wind.deg + 180) %% 360 - 180
 
 cond <- c()
-
 for (i in 1:dim(test)[[1]]) {
   cond <- append(cond, test$weather[[i]]$main)
 }
@@ -55,6 +54,16 @@ time_zone <- c()
 for (i in 1:dim(test)[[1]]) {
   time_zone <-
     append(time_zone, timezone)
+}
+
+rain <- c()
+for (i in 1:dim(test)[[1]]) {
+  rain <- append(rain, nullQ(test$rain.3h[[i]]))
+}
+
+snow <- c()
+for (i in 1:dim(test)[[1]]) {
+  snow <- append(snow, nullQ(test$snow.3h[[i]]))
 }
 
 weatherData <-
@@ -73,7 +82,9 @@ weatherData <-
     wind_speed,
     wind_degree,
     cond,
-    condition
+    condition,
+    rain,
+    snow
   )
 
 # API for weather now
@@ -101,7 +112,9 @@ temperature_min <- nullQ(weather$main$temp_min - 273.15)
 temperature_max <- nullQ(weather$main$temp_max - 273.15)
 visibility <- nullQ(weather$visibility)
 wind_speed <- nullQ(weather$wind$speed)
-wind_degree <- nullQ(weather$wind$deg)
+wind_degree <- nullQ((weather$wind$deg + 180) %% 360 - 180)
+country <- weather$sys$country
+city <- weather$name
 
 weatherNow <-
   data.frame(
@@ -118,5 +131,7 @@ weatherNow <-
     temperature_max,
     visibility,
     wind_speed,
-    wind_degree
+    wind_degree,
+    city,
+    country
   )
