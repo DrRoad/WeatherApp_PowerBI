@@ -37,6 +37,5 @@ Basically, this project is a simple visualization of data but it is useful and c
 ![alt text](https://github.com/RobertBoganKang/WeatherApp_PowerBI/blob/master/demo/Milwaukee%20Weather%20Future.PNG "Future Weather Demo")
 
 [More...](https://github.com/RobertBoganKang/WeatherApp_PowerBI/tree/master/demo)
----
 
 ***Enjoy***
