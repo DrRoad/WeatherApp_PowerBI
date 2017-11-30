@@ -123,8 +123,6 @@ sunrise <-
   as.POSIXct(weather$sys$sunrise, origin = "1970-01-01", tz = "UTC")
 sunset <-
   as.POSIXct(weather$sys$sunset, origin = "1970-01-01", tz = "UTC")
-rain <- naQ(weather$rain.3h)
-snow <- naQ(weather$snow.3h)
 cloud <- naQ(weather$clouds$all)
 
 weatherNow <-
@@ -147,7 +145,5 @@ weatherNow <-
     country,
     sunset,
     sunrise,
-    cloud,
-    rain,
-    snow
+    cloud
   )
