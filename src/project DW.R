@@ -9,6 +9,10 @@ nullQ <- function (x) {
   ifelse(is.null(x) || is.na(x), 0, x)
 }
 
+naQ <- function (x) {
+  ifelse(is.null(x) || is.na(x), NA, x)
+}
+
 # API for 5 days forcast
 weather <-
   fromJSON(
@@ -101,20 +105,27 @@ weather <-
 
 time <- as.POSIXct(weather$dt, origin = "1970-01-01", tz = "UTC")
 time_zone <- timezone
-longitude <- nullQ(weather$coord$lon)
-latitude <- nullQ(weather$coord$lat)
-cond <- nullQ(weather$weather$main)
-condition <- nullQ(weather$weather$description)
-pressure <- nullQ(weather$main$pressure)
-humidity <- nullQ(weather$main$humidity)
-temperature <- nullQ(weather$main$temp - 273.15)
-temperature_min <- nullQ(weather$main$temp_min - 273.15)
-temperature_max <- nullQ(weather$main$temp_max - 273.15)
-visibility <- nullQ(weather$visibility)
-wind_speed <- nullQ(weather$wind$speed)
-wind_degree <- nullQ((weather$wind$deg + 180) %% 360 - 180)
+longitude <- naQ(weather$coord$lon)
+latitude <- naQ(weather$coord$lat)
+cond <- naQ(weather$weather$main)
+condition <- naQ(weather$weather$description)
+pressure <- naQ(weather$main$pressure)
+humidity <- naQ(weather$main$humidity)
+temperature <- naQ(weather$main$temp - 273.15)
+temperature_min <- naQ(weather$main$temp_min - 273.15)
+temperature_max <- naQ(weather$main$temp_max - 273.15)
+visibility <- naQ(weather$visibility)
+wind_speed <- naQ(weather$wind$speed)
+wind_degree <- naQ((weather$wind$deg + 180) %% 360 - 180)
 country <- weather$sys$country
 city <- weather$name
+sunrise <-
+  as.POSIXct(weather$sys$sunrise, origin = "1970-01-01", tz = "UTC")
+sunset <-
+  as.POSIXct(weather$sys$sunset, origin = "1970-01-01", tz = "UTC")
+rain <- naQ(weather$rain.3h)
+snow <- naQ(weather$snow.3h)
+cloud <- naQ(weather$clouds$all)
 
 weatherNow <-
   data.frame(
@@ -133,5 +144,10 @@ weatherNow <-
     wind_speed,
     wind_degree,
     city,
-    country
+    country,
+    sunset,
+    sunrise,
+    cloud,
+    rain,
+    snow
   )
